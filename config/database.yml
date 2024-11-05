@@ -80,9 +80,10 @@ test:
 #
 production:
   primary: &primary_production
-  <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    <<: *default
+    database: eventbri_thp_new_production
+    username: eventbri_thp_new
+    password: <%= ENV["EVENTBRI_THP_NEW_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: eventbri_thp_new_production_cache
