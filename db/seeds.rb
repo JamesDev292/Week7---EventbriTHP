@@ -13,4 +13,3 @@ User.create!(first_name: "John", last_name: "Doe", email: "john292@yopmail.com",
 User.create!(first_name: "Jane", last_name: "Smith", email: "jane292@yopmail.com", description: "Another user")
 User.create!(first_name: "James", last_name: "Rolo", email: "james292@yopmail.com", description: "Another user")
 
-

@@ -1,0 +1,6 @@
+<h2>Mon Profil</h2>
+
+<p><strong>Nom :</strong> <%= @user.first_name %></p>
+<p><strong>Email :</strong> <%= @user.email %></p>
+
+<%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-primary' %>

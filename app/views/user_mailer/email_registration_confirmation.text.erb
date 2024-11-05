@@ -1,0 +1,15 @@
+Bonjour <%= @user.first_name %> <%= @user.last_name %>,
+
+Nous sommes ravis de vous confirmer votre inscription à l'événement "<%= @event.title %>".
+
+Détails de l'événement :
+- Date : <%= @event.start.strftime('%d %B %Y, %H:%M') %>
+- Durée : <%= @event.duration %> minutes
+- Lieu : <%= @event.location %>
+- Description : <%= @event.description %>
+- Prix : <%= @event.price %> €
+
+Nous avons hâte de vous voir participer ! Si vous avez des questions, n'hésitez pas à nous contacter.
+
+À bientôt,
+L'équipe de EventbriTHP

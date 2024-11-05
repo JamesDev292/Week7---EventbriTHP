@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      /* Styles inline pour une meilleure compatibilité dans les e-mails */
+    </style>
+  </head>
+  <body>
+    <h1>Bonjour <%= @user.first_name %> <%= @user.last_name %>,</h1>
+
+    <p>Nous sommes ravis de vous confirmer votre inscription à l'événement "<strong><%= @event.title %></strong>".</p>
+    
+    <h3>Détails de l'événement :</h3>
+    <ul>
+      <li><strong>Date :</strong> <%= @event.start.strftime('%d %B %Y, %H:%M') %></li>
+      <li><strong>Durée :</strong> <%= @event.duration %> minutes</li>
+      <li><strong>Lieu :</strong> <%= @event.location %></li>
+      <li><strong>Description :</strong> <%= @event.description %></li>
+      <li><strong>Prix :</strong> <%= @event.price %> €</li>
+    </ul>
+
+    <p>Nous avons hâte de vous voir participer ! Si vous avez des questions, n'hésitez pas à nous contacter.</p>
+
+    <p>À bientôt,</p>
+    <p>L'équipe de EventbriTHP</p>
+  </body>
+</html>
