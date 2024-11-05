@@ -1,0 +1,48 @@
+<h1> Création d'un nouvel événement </h1>
+<br>
+<div>
+<%= form_with(model: @event, local: true) do |f| %>
+  <div class="form-group col-md-2">
+    <%= f.label :title, "Titre de l'événement" %>
+    <%= f.text_field :title, class: "form-control", id: "eventTitle", placeholder: "Titre de l'événement" %>
+  </div>
+<br>
+
+  <div class="form-group col-md-2">
+    <%= f.label :start, "Date" %>
+    <%= f.datetime_local_field :start, class: "form-control", id: "eventStartDate", placeholder: "JJ/MM/AAAA" %>
+  </div>
+<br>
+
+  <div class="form-group col-md-2">
+    <%= f.label :duration, "Durée" %>
+    <%= f.number_field :duration, class: "form-control", id: "eventDuration", placeholder: "Durée en minutes" %>
+  </div>
+<br>
+
+  <div class="form-group col-md-2">
+    <%= f.label :price, "Prix" %>
+    <%= f.number_field :price, class: "form-control", id: "eventPrice", placeholder: "Prix en euros" %>
+  </div>
+<br>
+
+  <div class="form-group col-md-2">
+    <%= f.label :location, "Localisation" %>
+    <%= f.text_field :location, class: "form-control", id: "eventLocation", placeholder: "Ville ou adresse" %>
+  </div>
+<br>
+
+  <div class="form-group col-md-2">
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description, class: "form-control", id: "eventDescription", rows: 3, placeholder: "Description de l'événement" %>
+  </div>
+<br>
+
+
+  <%= f.hidden_field :admin_id, value: current_user.id %>
+
+
+  <button type="submit" class="btn btn-primary mt-3">Valider</button>
+<% end %>
+
+</div>

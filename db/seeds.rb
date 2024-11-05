@@ -8,8 +8,13 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-# Créer quelques utilisateurs
-User.create!(first_name: "John", last_name: "Doe", email: "john292@yopmail.com", description: "A regular user")
-User.create!(first_name: "Jane", last_name: "Smith", email: "jane292@yopmail.com", description: "Another user")
-User.create!(first_name: "James", last_name: "Rolo", email: "james292@yopmail.com", description: "Another user")
 
+
+# Création de plusieurs événements
+Event.create([
+  { title: 'Soirée Jazz', description: 'Venez profiter d\'une soirée jazz en plein air', start: DateTime.now + 3.days, duration: 120, price: 20, location: 'Paris', admin_id: User.first.id },
+  { title: 'Atelier Peinture', description: 'Apprenez les bases de la peinture avec des experts', start: DateTime.now + 7.days, duration: 180, price: 45, location: 'Lyon', admin_id: User.second.id },
+  { title: 'Cours de Cuisine', description: 'Découvrez la cuisine locale et préparez des plats délicieux', start: DateTime.now + 10.days, duration: 90, price: 30, location: 'Marseille', admin_id: User.first.id },
+  { title: 'Conférence Technologie', description: 'Conférence sur les innovations technologiques actuelles', start: DateTime.now + 15.days, duration: 240, price: 60, location: 'Bordeaux', admin_id: User.second.id },
+  { title: 'Randonnée en Montagne', description: 'Passez une journée en montagne avec un guide', start: DateTime.now + 20.days, duration: 300, price: 25, location: 'Grenoble', admin_id: User.first.id }
+])

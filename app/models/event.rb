@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   has_many :participants, through: :attendances
 
   # Validations pour les attributs
-  validates :start_date, presence: true
+  validates :start, presence: true
   validates :duration, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :title, presence: true, length: { in: 5..140 }
   validates :description, presence: true, length: { in: 20..1000 }
@@ -18,8 +18,8 @@ class Event < ApplicationRecord
   private
 
   def start_date_cannot_be_in_the_past
-    if start_date.present? && start_date < Time.now
-      errors.add(:start_date, "ne peut pas être dans le passé.")
+    if start.present? && start < Time.now
+      errors.add(:start, "ne peut pas être dans le passé.")
     end
   end
 

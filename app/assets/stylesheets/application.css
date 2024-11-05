@@ -8,3 +8,58 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+ .jumbotron {
+    background-image: url('https://images.pexels.com/photos/1481309/pexels-photo-1481309.jpeg');
+    background-size: cover; 
+    background-position: center; /* Centre l'image dans le jumbotron */
+    color: white;
+    padding: 120px; 
+  }
+  
+  .navbar {
+    color: white;
+  }
+
+  .navbar-custom {
+    background-color: rgba(51, 51, 51, 0.877); /* Gris foncé avec transparence */
+  }
+  
+  .navbar-brand { 
+    color : #ff4400cc !important;
+}
+
+
+.button {
+    background-color: #ffffff00;
+    color: #fff;
+    width: 12.5em;
+    height: 2.9em;
+    border: #ff4400cc 0.2em solid;
+    border-radius: 11px;
+    text-align: right;
+    transition: all 0.6s ease;
+  }
+  
+  .button:hover {
+    background-color: #ff4400cc;
+    cursor: pointer;
+  }
+  
+  .button svg {
+    width: 1.6em;
+    margin: 0em 0.9em 0.8em;
+    position: absolute;
+    display: flex;
+    transition: all 0.6s ease;
+  }
+  
+  .button:hover svg {
+    transform: translateX(5px);
+  }
+  
+  .text {
+    margin: 0 1.5em
+    
+  }
+
+  
