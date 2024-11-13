@@ -1,5 +1,17 @@
-<h1> <%= @event.title %> </h1>
 
+<div class = "container-fluid text-center">
+    <div>
+    <br>
+
+    <h1> <%= @event.title %> </h1>
+    <p>
+    <br>
+    <% if @event.pictures.attached? %>
+    <%= image_tag @event.pictures, alt: 'image' %>
+    <% else %>
+    <p>Aucune image disponible pour cet événement.</p>
+    <% end %>
+    </p>
     <p>
     Titre : <%= @event.title %> 
     </p>
@@ -10,7 +22,7 @@
     Durée :  <%= @event.duration %> min
     </p>
     <p>
-    Prix : <%= @event.price %>
+    Prix : <%= @event.price %> €
     </p>
     <p>
     Lieux : <%= @event.location %>
@@ -21,5 +33,18 @@
     <p>
     Créateur : <%= @event.admin.email %>
     </p>
+    <p>
+    Nombre de participant : <%= @participant.count %>
+    </p>
 
-    
+        <% if user_signed_in? && @event.admin_id != current_user.id && !@event.attendances.exists?(user_id: current_user.id) %>
+            <%= button_to "Participer à l'event", checkout_create_path(total: @event.price, event_id: @event.id), class: "btn btn-primary", data: {turbo: false} %>
+        <% elsif @event.admin_id == current_user.id %>
+            <p><%= link_to 'mon espace événement', attendances_path %></p>
+        <% elsif @event.attendances.exists?(user_id: current_user.id) %>
+            <p> Tu participes déja à cette événement </p>
+        <% else %>
+            <p><%= link_to 'Tu souhaites rejoindre cet event ? Rejoins nous !', new_user_registration_path %></p>
+        <% end %>
+    </div>
+</div>

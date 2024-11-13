@@ -1,9 +1,24 @@
 Rails.application.routes.draw do
+
   
   root "events#index"
   devise_for :users
   resource :user
-  resources :events
+  resources :events do
+    resources :pictures, only: [:create]
+  end
+  resources :attendances
+
+
+  namespace :admin do
+    root "admin#index"
+  end
+
+  scope '/checkout' do
+    post 'create', to: 'checkout#create', as: 'checkout_create'
+    get 'success', to: 'checkout#success', as: 'checkout_success'
+    get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
+  end
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

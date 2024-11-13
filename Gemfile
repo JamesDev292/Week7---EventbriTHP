@@ -2,6 +2,8 @@ source "https://rubygems.org"
 ruby '3.2.2'
 gem 'dotenv-rails'
 gem 'devise'
+gem 'stripe'
+gem 'table_print' 
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.1"

@@ -1,7 +1,7 @@
 <h1> Création d'un nouvel événement </h1>
 <br>
-<div>
-<%= form_with(model: @event, local: true) do |f| %>
+<div class="container-fluid">
+<%= form_with(model: @event, local: true, html: { multipart: true }) do |f| %>
   <div class="form-group col-md-2">
     <%= f.label :title, "Titre de l'événement" %>
     <%= f.text_field :title, class: "form-control", id: "eventTitle", placeholder: "Titre de l'événement" %>
@@ -38,11 +38,16 @@
   </div>
 <br>
 
+  <div class="form-group col-md-2">
+  <%= f.label :pictures, "Image de l'événement" %>
+  <%= f.file_field :pictures, class: "form-control" %>
 
-  <%= f.hidden_field :admin_id, value: current_user.id %>
+  </div>
+
 
 
   <button type="submit" class="btn btn-primary mt-3">Valider</button>
 <% end %>
+
 
 </div>

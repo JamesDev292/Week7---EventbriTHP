@@ -6,10 +6,11 @@ class EventsController < ApplicationController
 
     def show
         @event = Event.find(params[:id])
+        @participant = @event.attendances
     end
 
     def new
-
+        @event = Event.new
     end 
 
     def create
@@ -25,8 +26,8 @@ class EventsController < ApplicationController
 
 private
 
-def post_params
-    params.require(:event).permit(:start, :duration,:title, :description, :price, :location, :admin_id)
-  end
+    def post_params
+        params.require(:event).permit(:start, :duration, :title, :description, :price, :location, :pictures)
+    end
 
 end

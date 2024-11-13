@@ -1,0 +1,10 @@
+
+<h1>Voici la liste des participants :</h1>
+
+<p>
+  <% @participant.each do |attendance| %>
+    <%= attendance.user.email %>
+  <% end %>
+</p>
+
+<%= button_to "Modifier la participation", edit_attendance_path(attendance), class: "btn btn-primary" %><br>
